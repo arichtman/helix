@@ -43,7 +43,7 @@
 
 (selector_expr
   (select_suffix
-    (identifier) @property))
+    (identifier) @variable.other.member))
 
 (comment) @comment
 (string) @string
@@ -53,7 +53,7 @@
   body: (block
     .
     (string
-      (string_content) @string.documentation)))
+      (string_content) @comment.block.documentation)))
 
 (decorator
   (identifier) @attribute)
@@ -105,6 +105,14 @@
   "else"
 ] @keyword.control.conditional
 
+[ 
+  "and"
+  "or"
+  "not"
+  "in"
+  "is"
+] @keyword.operator
+
 [
   "("
   ")"
@@ -139,11 +147,6 @@
   "=="
   "!="
   "@"
-  "and"
-  "or"
-  "not"
-  "in"
-  "is"
   "="
   ":"
 ] @operator
